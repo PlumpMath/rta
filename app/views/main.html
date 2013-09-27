@@ -1,9 +1,30 @@
-<div class="hero-unit">
-  <h1>'Allo, 'Allo!</h1>
-  <p>You now have</p>
-  <ul>
-      <li ng-repeat="thing in awesomeThings">{{thing}}</li>
-  </ul>
-  <p>installed.</p>
-  <h3>Enjoy coding! - Yeoman</h3>
+<div class="row">
+	<div class="sidebar"> 
+		<h4><a href="/#">Return to Story Index</a></h4>
+		<h5>Type '&lt;' or '&gt;' to speed up or slow down the story.</h5>
+		<!-- Begin MailChimp Signup Form -->
+		<div id="mc_embed_signup">
+			<form action="http://easywaker.us6.list-manage.com/subscribe/post?u=4f933907eabe7e1075e53fb00&amp;id=525ab984a3" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+					<h5>Get More Adventures!</h5>
+					<div class="mc-field-group">
+								<input type="email" value="" placeholder="Your Email Address" name="EMAIL" class="email" id="mce-EMAIL">
+							</div>
+								<div id="mce-responses" class="clear">
+											<div class="response" id="mce-error-response" style="display:none"></div>
+													<div class="response" id="mce-success-response" style="display:none"></div>
+														</div>	<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+													</form>
+												</div>
+
+												<!--End mc_embed_signup-->
+	</div>
+	<div class="span3"></div>
+	<div class="span6">
+		<div class="scene" ng-repeat="scene in scenes">
+			<h1 class="scene-title">{{scene.scene_name}}</h1>
+			<p class="text" ng-repeat="text in scene.paragraphs" ng-bind-html-unsafe="text"></p>
+			<div class="centering"></div>
+		</div>
+	</div>
+	<div class="span3"></div>
 </div>
