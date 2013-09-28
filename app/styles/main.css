@@ -48,7 +48,9 @@ h5 {
 }
 
 #choices {
+  margin-top: 20px;
   font-weight: bold;
   font-size: 16px;
   font-family: Helvetica;
 }
+
