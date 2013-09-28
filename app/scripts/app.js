@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('angularAppsApp', [])
-.config(function ($routeProvider) {
+angular.module('angularAppsApp', ['ngRoute', 'ngTouch'])
+.config(['$routeProvider', function ($routeProvider) {
 	$routeProvider
 	.when('/story/:firstScene', {
 		templateUrl: 'views/main.html',
@@ -26,4 +26,4 @@ angular.module('angularAppsApp', [])
 	.otherwise({
 		redirectTo: '/index'
 	});
-});
+}]);

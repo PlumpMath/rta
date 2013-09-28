@@ -4,7 +4,7 @@
       <h1 class="scene-title">{{scene.scene_name}}</h1>
       <div class="row">
         <div class="span6">
-          <p class="text" ng-repeat="text in scene.paragraphs" ng-bind-html-unsafe="text"></p>
+          <p class="text" ng-repeat="text in scene.paragraphs" ng-bind="text"></p>
           <div class="centering"></div>
         </div>
         <div class="span6"></div>
@@ -14,11 +14,11 @@
   <div class="span3">
     <div class="sidebar hidden-phone"> 
       <h4><a href="/#">Return to Story Index</a></h4>
-      <h5>Type '&lt;' or '&gt;' to speed up or slow down the story.</h5>
+      <h5>Type '&lt;' or '&gt;' to speed up or slow down the story.</h5><BR>
       <!-- Begin MailChimp Signup Form -->
       <div id="mc_embed_signup">
         <form action="http://easywaker.us6.list-manage.com/subscribe/post?u=4f933907eabe7e1075e53fb00&amp;id=525ab984a3" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-            <h5>Get More Adventures!</h5>
+            <h4>Get More Adventures!</h4>
             <div class="mc-field-group">
                   <input type="email" value="" placeholder="Your Email Address" name="EMAIL" class="email" id="mce-EMAIL">
                 </div>
@@ -37,11 +37,30 @@
       <div class="span6">
         <div id="choices" class="well">
           <p>{{choiceText}}</p>
-          <p ng-repeat="choice in choices" ng-tap="Mousetrap.trigger(choice.key)">(<span ng-bind-html-unsafe="choice.key"></span>): <span ng-bind-html-unsafe="choice.description"></span></p> 
+          <p ng-repeat="choice in choices" ng-click="trigger(choice.key)">(<span ng-bind="choice.key"></span>): <span ng-bind="choice.description"></span></p> 
         </div>
        </div>
       <div class="span6"></div>
     </div>
   </div>
-  <div class="span4"></div>
+  <div class="span3">
+    <div class="sidebar visible-phone"> 
+      <h4><a href="/#">Return to Story Index</a></h4><BR>
+      <!-- Begin MailChimp Signup Form -->
+      <div id="mc_embed_signup">
+        <form action="http://easywaker.us6.list-manage.com/subscribe/post?u=4f933907eabe7e1075e53fb00&amp;id=525ab984a3" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <h4>Get More Adventures!</h4>
+            <div class="mc-field-group">
+                  <input type="email" value="" placeholder="Your Email Address" name="EMAIL" class="email" id="mce-EMAIL">
+                </div>
+                  <div id="mce-responses" class="clear">
+                        <div class="response" id="mce-error-response" style="display:none"></div>
+                            <div class="response" id="mce-success-response" style="display:none"></div>
+                              </div>	<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                            </form>
+                          </div>
+
+                          <!--End mc_embed_signup-->
+    </div>
+  </div>
 </div>

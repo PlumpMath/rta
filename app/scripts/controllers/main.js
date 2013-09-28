@@ -2,6 +2,9 @@
 
 angular.module('angularAppsApp')
   .controller('MainCtrl', function ($scope, Story, $timeout, $q, $routeParams) {
+    $scope.trigger = function(val) {
+      Mousetrap.trigger(val);
+    };
     $scope.choiceText = "What will you do?";
     $scope.choices = [];
     var storyId = $routeParams.firstScene;
