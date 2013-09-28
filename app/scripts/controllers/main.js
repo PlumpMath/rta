@@ -2,6 +2,8 @@
 
 angular.module('angularAppsApp')
   .controller('MainCtrl', function ($scope, Story, $timeout, $q, $routeParams) {
+    $scope.choiceText = "What will you do?";
+    $scope.choices = [];
     var storyId = $routeParams.firstScene;
     $scope.storySpeed = 70;
     Mousetrap.bind(['.','>'], function() {
@@ -60,9 +62,14 @@ angular.module('angularAppsApp')
     }
 
     function loadChoice(choice) {
+      $scope.choiceText = '';
+      $scope.choices = [];
       console.log(choice);
       function bindMousetrap(choice) {
         Mousetrap.bind(choice.key, function() { 
+          console.log('Chosen key');
+          $scope.choices = [];
+          $scope.choiceText = 'Loading . . . ';
           console.log(c);
           console.log(choice.key);
           Mousetrap.unbind(choice.key);
@@ -70,8 +77,14 @@ angular.module('angularAppsApp')
           _gaq.push(['_trackEvent', 'Story', 'Choice', choices.sceneId]);
         });
       };
-      for (var c in choice) {
-        bindMousetrap(choice[c]);
+      if (choice.length == 0) {
+        $scope.choiceText = 'The End';
+      }
+      else { 
+        for (var c in choice) {
+          $scope.choices.push(choice[c]);
+          bindMousetrap(choice[c]);
+        }
       }
     } 
 
