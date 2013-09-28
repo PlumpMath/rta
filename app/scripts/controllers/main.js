@@ -77,7 +77,7 @@ angular.module('angularAppsApp')
           console.log(choice.key);
           Mousetrap.unbind(choice.key);
           loadScene(choice.sceneId); 
-          _gaq.push(['_trackEvent', 'Story', 'Choice', choices.sceneId]);
+          _gaq.push(['_trackEvent', 'Story', 'Choice', choice.sceneId]);
         });
       };
       if (choice.length == 0) {
