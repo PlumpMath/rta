@@ -27,10 +27,6 @@ h1 {
 }
 
 .sidebar {
-	position: fixed;
-	top: 0;
-	width: 200px;
-	left: 10px;
 }
 
 .email {
@@ -49,4 +45,10 @@ h5 {
 
 .index a {
 	font-size: 16px;
+}
+
+#choices {
+  font-weight: bold;
+  font-size: 16px;
+  font-family: Helvetica;
 }
