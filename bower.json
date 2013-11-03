@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "angular-mocks": "*",
-    "angular-scenario": "*"
+    "angular-scenario": "*",
+    "underscore": "~1.5.2"
   }
 }

@@ -15,11 +15,20 @@ body {
     padding: 60px;
 }
 
+h2 {
+    font-size: 30px;
+    line-height: 32px;
+    letter-spacing: -1px;
+    font-family: Helvetica, Arial;
+    margin-bottom: 20px;
+}
 h1 {
-    font-size: 50px;
+    font-size: 45px;
     line-height: 55px;
     letter-spacing: -1px;
     font-family: Helvetica, Arial;
+    text-shadow: 1px 1px 1px #000000;
+    filter: dropshadow(color=#000000, offx=1, offy=1);
 }
 
 .container {
@@ -47,10 +56,47 @@ h5 {
 	font-size: 16px;
 }
 
-#choices {
-  margin-top: 20px;
+.choices {
+  margin-top: 10px;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 18px;
   font-family: Helvetica;
 }
 
+.choices p {
+  padding: 15px 0;
+  margin: 0;
+}
+
+.choices p:last-child {
+}
+
+.edit-paragraph {
+  width: 96%;
+  height: 400px;
+}
+
+.edit-paragraph-small {
+  width: 50%;
+  height: 100px;
+}
+
+.adventure-title {
+  font-size: 19px;
+  line-height: 28px;
+  font-family: arial;
+}
+
+.word-count {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+
+p.description {
+  font-size: 11px;
+}
+
+.edit-page h2 {
+  margin-bottom: 10px;
+}

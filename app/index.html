@@ -15,9 +15,13 @@
         <link rel="stylesheet" href="styles/bootstrap.css">
         <link rel="stylesheet" href="styles/bootstrap-responsive.css">
         <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="styles/alertify.bootstrap.css">
+        <link rel="stylesheet" href="styles/alertify.core.css">
+        <link rel="stylesheet" href="styles/alertify.default.css">
         <!-- endbuild -->
+        <link rel="stylesheet" href="vendors/nprogress.css">
 </head>
-  <body ng-app="angularAppsApp">
+  <body ng-app="rtaApp">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -45,8 +49,9 @@
 
     <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
-
+    <script type='text/javascript' src='https://cdn.firebase.com/v0/firebase.js'></script>
         <!-- build:js scripts/plugins.js -->
+        <script src="bower_components/underscore/underscore.js"></script>
         <script src="bower_components/bootstrap-sass/js/bootstrap-affix.js"></script>
         <script src="bower_components/bootstrap-sass/js/bootstrap-alert.js"></script>
         <script src="bower_components/bootstrap-sass/js/bootstrap-dropdown.js"></script>
@@ -63,6 +68,8 @@
 				<script src="vendors/mousetrap.min.js"></script>
 				<!-- endbuild -->
 
+				<script src="vendors/nprogress.js"></script>
+				<script src="vendors/alertify.min.js"></script>
         <!-- build:js scripts/modules.js -->
         <script src="bower_components/angular-resource/angular-resource.js"></script>
         <script src="bower_components/angular-cookies/angular-cookies.js"></script>
@@ -75,8 +82,19 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/services/Story.js"></script>
-        <script src="scripts/services/REST.js"></script>
         <script src="scripts/controllers/index.js"></script>
+        <script src="scripts/services2/REST.js"></script>
+        <script src="scripts/services2/Database.js"></script>
+        <script src="scripts/services2/auth.js"></script>
+        <script src="scripts/services2/Firebase.js"></script>
+        <script src="scripts/services2/Configs.js"></script>
+        <script src="scripts/services2/Users.js"></script>
+        <script src="scripts/services2/LocalStorage.js"></script>
+        <script src="scripts/controllers/edit-story.js"></script>
+        <script src="scripts/controllers/login.js"></script>
         <!-- endbuild -->
+        <script type='text/javascript'
+          src='https://cdn.firebase.com/v0/firebase-simple-login.js'>
+        </script>
 </body>
 </html>

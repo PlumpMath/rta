@@ -1,14 +1,15 @@
 <div class="row">
-	<div class="span9">
-		<h1 class="scene-title">Real Time Adventures</h1>
-		<p class="text">Welcome! Please select an adventure. If you would like to create your own adventure, visit our <a href="http://admin.real-time-adventures.com">Admin</a> page. Enjoy!</p>
-	</div>
-	<div class="span3">
-    <div class="sidebar"> 
-      <h4><a href="/#">Story Index</a></h4>
-      <div ng-repeat="story in stories">
-        <a ng-href="/#/story/{{story.sceneId}}">{{story.title}}</a>
+	<div class="offset3 span6">
+		<h1 class="text-info">Real Time Adventures</h1>
+      <div ng-repeat="(key, story) in stories">
+        <div ng-hide="story.published == false">
+          <a class="adventure-title" ng-href="/#/story/{{key}}">{{story.title}}</a>
+          <blockquote ng-bind="story.description"></blockquote></div>
       </div>
+    <div class="sidebar visible-desktop"> 
+      <hr/>
+        <a href="/#/login">Create your own adventure</a></p>
     </div>
 	</div>
+  <div class="span3"></div>
 </div>

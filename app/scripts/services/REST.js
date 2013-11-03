@@ -1,12 +1,23 @@
 'use strict';
 
-angular.module('angularAppsApp')
+angular.module('rtaApp')
   .factory('REST', function ($http, $timeout) {
     // Service logic
     // ...
 
     // Public API here
     return {
+			getStory: function(storyId, cb) {
+				$http({
+					method: 'POST',
+					data: {},
+				url: '/rest/get-story/' + storyId}).
+				success(function(result, status) {
+					$timeout(function(){
+						cb(result);
+					},0)
+				});
+			},
 			getStoryIndex: function(cb) {
 				$http({
 					method: 'POST',
