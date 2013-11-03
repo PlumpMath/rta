@@ -70,15 +70,17 @@ module.exports = function (grunt) {
         // Change this to '0.0.0.0' to access the server from outside.
         hostname: 'localhost'
       },
-			proxies: [
-				{
-					context: '/rest',
-					host: 'http://admin.real-time-adventures.com',
-					port: 80,
-					https: false,
-					changeOrigin: false
-				}
-			],
+      server2: {
+        proxies: [
+          {
+            context: '/rest',
+            host: '66.228.48.118',
+            port: 8085,
+            https: false,
+            changeOrigin: false
+          }
+        ]
+      },
       livereload: {
         options: {
           middleware: function (connect) {
@@ -123,7 +125,8 @@ module.exports = function (grunt) {
           src: [
             '.tmp',
             '<%= yeoman.dist %>/*',
-            '!<%= yeoman.dist %>/.git*'
+            '!<%= yeoman.dist %>/.git*',
+            '!<%= yeoman.dist %>/vendors'
           ]
         }]
       },
