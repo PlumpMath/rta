@@ -1,0 +1,94 @@
+<div class="row">
+  <div class="span3">
+    <h4>Click on a choice to edit new scene</h4>
+    <h4>Press 'b' to move back one scene</h4>
+  </div>
+  <div class="span6 edit-page">
+    <h1 class="text-info" ng-bind="story.title"></h1>
+    <input ng-show="editingMeta" ng-model="story.title"></input>
+    <p ng-show="editingMeta"><textarea class="edit-paragraph-small"  ng-model="story.description"></textarea></p>
+    <h5>by <span ng-bind="story.author"></span> <span class="label label-success" ng-hide="story.published == false">published</span><span class="label label-important" ng-show="story.published == false">unpublished</span></h5>
+    <button class="btn btn-info" ng-hide="editingMeta" ng-click="editMeta()">Edit Title/Description</button> 
+    <button class="btn btn-success" ng-show="editingMeta" ng-click="saveMeta()">Save Title/Description</button> 
+    <button class="btn btn-danger" ng-click="publishStory(false)" ng-show="story.published">Unpublish Story</button> 
+    <button class="btn btn-success" ng-click="publishStory(true)" ng-hide="story.published">Publish Story</button> 
+    <hr />
+    <div class="scene" ng-repeat="(sceneCount, scene) in scenes">
+      <h2 class="scene-title">{{sceneCount + 1}}. {{scene.title}} <span style="font-size: 14px">(id: {{scene.id}})</span> </h2>
+      <div class="row">
+        <div class="span6">
+          <div ng-hide="showEditScene[scene.title]">
+            <p class="text" ng-repeat="text in scene.text track by $index" ng-bind="text"></p>
+          </div>
+          <p ng-hide="showEditScene[scene.title]">
+            <button ng-hide="showEditScene[scene.title]" class="btn btn-info" ng-click="editScene(scene)">Edit Scene Title and Text</button>
+          </p>
+          <p ng-show="showEditScene[scene.title]">
+            <h4 ng-show="showEditScene[scene.title]" class="word-count">({{scene.wordCount}} words)</h4>
+            <p><input ng-show="showEditScene[scene.title]" ng-model="updatedTitle" ng-change="updateTitle(scene, updatedTitle)"></input></p>
+            <textarea class="edit-paragraph" ng-show="showEditScene[scene.title]" ng-model="updatedText" ng-change="updateText(scene, updatedText)"></textarea>
+              <p>
+              <button ng-show="showEditScene[scene.title]" class="btn btn-success" ng-click="saveScene(scene)">Save Scene</button>
+              </p>
+          </p>
+          <div class="centering"></div>
+          <div class="well" ng-show="scene.id != choicesSceneId">
+            <p ng-repeat="choice in scene.choice"><span ng-bind="choice.description"></span></p> 
+          </div>
+        </div>
+        <div class="span6"></div>
+      </div>
+    </div>
+  </div>
+  <div class="span3">
+  </div>
+  <div class="offset3 span6">
+    <div class="row">
+      <div class="span6">
+        <div class="choices well">
+          <div ng-hide="showEditChoices[choicesSceneId]">
+            <p ng-repeat="choice in choices" ng-click="clickChoice(choice.sceneId)"><span ng-bind="choice.description"></span></p> 
+          </div>
+          <div ng-show="showEditChoices[choicesSceneId]">
+            <div type="text" ng-repeat="(key, choice) in updatedChoices">
+              <input type="text" ng-model="choice.description" placeholder="Choice description"></input>
+              <input type="text" ng-model="choice.sceneId" placeholder="Enter scene id if looping back"></input>
+              <a href style="font-size: 10px;" ng-click="choice.description = ''; choice.sceneId= ''; saveChoices(updatedChoices)">Remove</a>
+            </div>
+            <p>
+              <button ng-show="showEditChoices[choicesSceneId]" class="btn btn-success" ng-click="saveChoices(updatedChoices)">Save Choices</button>
+              <button ng-show="showEditChoices[choicesSceneId] && noMoreChoices" class="btn btn-success" ng-click="addChoice()">Add Choice</button>
+            </p>
+          </div>
+          <div ng-hide="showEditChoices[choicesSceneId]">
+            <button ng-hide="showEditChoices[choicesSceneId]" class="btn btn-info" ng-click="editChoices(choices)">Edit Choices</button>
+          </div>
+        </div>
+      </div>
+      <div class="span6"></div>
+    </div>
+    <div ng-show="false" class="row">
+      <hr/>
+      <div class="span6">
+        <div class="sidebar"> 
+          <!-- Begin MailChimp Signup Form -->
+          <div id="mc_embed_signup">
+            <form action="http://easywaker.us6.list-manage.com/subscribe/post?u=4f933907eabe7e1075e53fb00&amp;id=525ab984a3" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+              <h4>Receive Updates on New Adventures!</h4>
+              <div class="mc-field-group">
+                <input type="email" value="" placeholder="Your Email Address" name="EMAIL" class="email" id="mce-EMAIL">
+              </div>
+              <div id="mce-responses" class="clear">
+                <div class="response" id="mce-error-response" style="display:none"></div>
+                <div class="response" id="mce-success-response" style="display:none"></div>
+              </div>	<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+            </form>
+          </div>
+          <h2 class="scene-title"><a href="/#">Real Time Adventures</a></h2>
+          <!--End mc_embed_signup-->
+        </div>
+      </div>
+      <div class="span6"></div>
+    </div>
+  </div>
+</div>
